@@ -55,16 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 0.4);
 
     // --- 2. METRICS BAR ---
-    gsap.from(".border-y.bg-\\[\\#0D0D15\\] > div > div", {
+    gsap.from("#metricas > div > div", {
         scrollTrigger: {
-            trigger: ".border-y.bg-\\[\\#0D0D15\\]",
+            trigger: "#metricas",
             start: "top 85%",
         },
-        y: 50,
+        y: 80,
         opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out"
+        duration: 1.5,
+        stagger: 0.15,
+        ease: "expo.out"
     });
 
     // --- 3. SOLUTIONS CARDS ---
