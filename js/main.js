@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 9. MOUSE MOVE EFFECT ON HERO ABTRACT BOX ---
-    const visualBox = document.querySelector(".hidden.md\\:flex.w-full.md\\:w-\\[40\\%\\].justify-end > div");
+    const visualBox = document.querySelector("#hero-visual > div");
     if (visualBox) {
         window.addEventListener("mousemove", (e) => {
             const x = (e.clientX / window.innerWidth - 0.5) * 20;
