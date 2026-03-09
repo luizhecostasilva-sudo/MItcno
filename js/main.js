@@ -131,28 +131,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 5. ABOUT SECTION ---
-    animateSection("#sobre .animate-on-scroll", 50, 0.2, "top 85%");
+    const aboutElements = document.querySelectorAll("#sobre .about-anim");
+    if (aboutElements.length > 0) {
+        gsap.set(aboutElements, { autoAlpha: 1 });
+        gsap.from(aboutElements, {
+            scrollTrigger: {
+                trigger: "#sobre",
+                start: "top 85%",
+                toggleActions: "play reverse play reverse"
+            },
+            y: 50,
+            autoAlpha: 0,
+            duration: 1.5,
+            stagger: 0.2, // Generous stagger for text and stats
+            ease: "expo.out",
+            clearProps: "all"
+        });
+    }
 
     // --- 6. PARTNERS HEADER ---
-    animateSection("#parceiros .animate-on-scroll", 30, 0, "top 85%");
+    const partnerElements = document.querySelectorAll("#parceiros .partner-anim");
+    if (partnerElements.length > 0) {
+        gsap.set(partnerElements, { autoAlpha: 1 });
+        gsap.from(partnerElements, {
+            scrollTrigger: {
+                trigger: "#parceiros",
+                start: "top 85%",
+                toggleActions: "play reverse play reverse"
+            },
+            y: 30,
+            autoAlpha: 0,
+            duration: 1.2,
+            ease: "expo.out",
+            clearProps: "all"
+        });
+    }
 
     // --- 7. CASOS DE SUCESSO HEADER & CARDS ---
-    animateSection("#casos .text-center", 40, 0, "top 85%");
+    const casesHeader = document.querySelectorAll("#casos .cases-header-anim");
+    if (casesHeader.length > 0) {
+        gsap.set(casesHeader, { autoAlpha: 1 });
+        gsap.from(casesHeader, {
+            scrollTrigger: {
+                trigger: "#casos",
+                start: "top 85%",
+                toggleActions: "play reverse play reverse"
+            },
+            y: 40,
+            autoAlpha: 0,
+            duration: 1.2,
+            ease: "expo.out",
+            clearProps: "all"
+        });
+    }
 
-    gsap.from("#casos .grid > div", {
-        scrollTrigger: {
-            trigger: "#casos .grid",
-            start: "top 85%",
-            toggleActions: "play reverse play reverse"
-        },
-        y: 80,
-        autoAlpha: 0,
-        scale: 0.95,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: "expo.out",
-        clearProps: "all"
-    });
+    const caseCards = document.querySelectorAll("#casos .case-card");
+    if (caseCards.length > 0) {
+        gsap.set(caseCards, { autoAlpha: 1 });
+        gsap.from(caseCards, {
+            scrollTrigger: {
+                trigger: "#casos .grid",
+                start: "top 85%",
+                toggleActions: "play reverse play reverse"
+            },
+            y: 80,
+            autoAlpha: 0,
+            scale: 0.95,
+            duration: 1.5,
+            stagger: 0.15, // Smooth sequential card reveal
+            ease: "expo.out",
+            clearProps: "all"
+        });
+    }
 
     // --- 8. BACKGROUND GLOW PARALLAX ---
     gsap.utils.toArray(".blur-\\[120px\\], .blur-\\[100px\\]").forEach(glow => {
