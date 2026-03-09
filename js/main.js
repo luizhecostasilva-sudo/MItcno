@@ -30,17 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. HERO ENTRANCE ---
     const heroTl = gsap.timeline();
-    heroTl.from("header", { y: -50, opacity: 0, duration: 1, ease: "power3.out" }, 0);
+    heroTl.from("header", { y: -50, autoAlpha: 0, duration: 1, ease: "power3.out" }, 0);
     heroTl.from("#hero .animate-on-scroll > *", {
         y: 40,
-        opacity: 0,
+        autoAlpha: 0,
         duration: 1.2,
         stagger: 0.15,
         ease: "power2.out"
     }, 0.2);
     heroTl.from("#hero-visual", {
         x: 50,
-        opacity: 0,
+        autoAlpha: 0,
         duration: 1.2,
         ease: "power3.out"
     }, 0.4);
@@ -49,17 +49,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateSection = (selector, yOffset, staggerTime, triggerPoint = "top 85%") => {
         const elements = document.querySelectorAll(selector);
         if (elements.length > 0) {
+            // First ensure elements are visible for GSAP to manipulate
+            gsap.set(elements, { autoAlpha: 1 });
+
             gsap.from(elements, {
                 scrollTrigger: {
                     trigger: elements[0].closest('section') || elements[0].parentElement,
                     start: triggerPoint,
-                    toggleActions: "play reverse play reverse" // Guarantee it fades in and out flawlessly
+                    toggleActions: "play reverse play reverse"
                 },
                 y: yOffset,
-                opacity: 0,
+                autoAlpha: 0,
                 duration: 1.2,
                 stagger: staggerTime,
-                ease: "expo.out"
+                ease: "expo.out",
+                clearProps: "all" // Cleans up inline styles when done to avoid conflicts
             });
         }
     };
@@ -91,11 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleActions: "play reverse play reverse"
         },
         y: 80,
-        opacity: 0,
+        autoAlpha: 0,
         scale: 0.95,
         duration: 1.2,
         stagger: 0.15,
-        ease: "expo.out"
+        ease: "expo.out",
+        clearProps: "all"
     });
 
     // --- 8. BACKGROUND GLOW PARALLAX ---
