@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Remove fallback opacity classes set by HTML since GSAP will handle all inline styles
-    gsap.set(".animate-on-scroll", { opacity: 1, y: 0 });
+    // Removed fallback opacity GSAP set to prevent overlaps and instant jumps
 
     // --- 1. HERO ENTRANCE ---
     const heroTl = gsap.timeline();
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from("#metricas > div > div", {
         scrollTrigger: {
             trigger: "#metricas",
-            start: "top 85%",
+            start: "top 95%", // Triggers earlier so user scrolls less
         },
         y: 80,
         opacity: 0,
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from("#solucoes .grid > div", {
         scrollTrigger: {
             trigger: "#solucoes .grid",
-            start: "top 80%",
+            start: "top 90%",
         },
         y: 60,
         opacity: 0,
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from("#metodologia .sticky", {
         scrollTrigger: {
             trigger: "#metodologia",
-            start: "top 80%",
+            start: "top 90%",
         },
         y: 40,
         opacity: 0,
@@ -97,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(step, {
             scrollTrigger: {
                 trigger: step,
-                start: "top 85%",
+                start: "top 90%",
                 toggleActions: "play none none reverse"
             },
             x: 50,
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from("#sobre .animate-on-scroll", {
         scrollTrigger: {
             trigger: "#sobre",
-            start: "top 80%",
+            start: "top 90%",
         },
         y: 50,
         opacity: 0,
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from("#parceiros .animate-on-scroll", {
         scrollTrigger: {
             trigger: "#parceiros",
-            start: "top 85%",
+            start: "top 95%",
         },
         y: 30,
         opacity: 0,
@@ -136,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from("#casos .text-center", {
         scrollTrigger: {
             trigger: "#casos",
-            start: "top 85%",
+            start: "top 95%",
         },
         y: 40,
         opacity: 0,
@@ -147,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.from("#casos .grid > div", {
         scrollTrigger: {
             trigger: "#casos .grid",
-            start: "top 85%",
+            start: "top 90%",
         },
         y: 80,
         opacity: 0,
