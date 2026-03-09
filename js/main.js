@@ -111,7 +111,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. METHODOLOGY HEADER & PARALLAX ---
     animateSection("#metodologia .sticky", 40, 0, "top 85%");
-    animateSection("#metodologia .relative.animate-on-scroll", 50, 0.15, "top 85%");
+
+    const methodologySteps = document.querySelectorAll("#metodologia .methodology-step");
+    if (methodologySteps.length > 0) {
+        gsap.set(methodologySteps, { autoAlpha: 1 });
+        gsap.from(methodologySteps, {
+            scrollTrigger: {
+                trigger: "#metodologia",
+                start: "top 75%",
+                toggleActions: "play reverse play reverse"
+            },
+            x: 50, // Slide in from the right to match the timeline design
+            autoAlpha: 0,
+            duration: 1.5,
+            stagger: 0.2, // Generous stagger for sequential reveal
+            ease: "expo.out",
+            clearProps: "all"
+        });
+    }
 
     // --- 5. ABOUT SECTION ---
     animateSection("#sobre .animate-on-scroll", 50, 0.2, "top 85%");
