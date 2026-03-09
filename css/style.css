@@ -50,16 +50,7 @@ h4,
 }
 
 /* Base Utility Classes for Future Animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-on-scroll.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Removed CSS transitions to avoid conflicts with GSAP */
 
 /* Infinite Marquee Animation for Partners */
 @keyframes marquee {

@@ -22,6 +22,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Remove fallback opacity classes set by HTML since GSAP will handle all inline styles
+    gsap.set(".animate-on-scroll", { opacity: 1, y: 0 }); // Wait, no, we just animate FROM specific states
+
     // --- 1. HERO ENTRANCE ---
     const heroTl = gsap.timeline();
 
@@ -34,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
         duration: 1.2,
         stagger: 0.15,
-        ease: "power4.out"
+        ease: "power2.out"
     }, 0.2);
 
     // Hero Abstract Visual Box
@@ -72,6 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 4. METHODOLOGY PARALLAX & REVEAL ---
+    gsap.from("#metodologia .sticky", {
+        scrollTrigger: {
+            trigger: "#metodologia",
+            start: "top 80%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
     const steps = gsap.utils.toArray("#metodologia .relative.animate-on-scroll");
     steps.forEach((step, i) => {
         gsap.from(step, {
@@ -87,7 +101,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 5. CASOS DE SUCESSO ---
+    // --- 5. ABOUT SECTION ---
+    gsap.from("#sobre .animate-on-scroll", {
+        scrollTrigger: {
+            trigger: "#sobre",
+            start: "top 80%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power3.out"
+    });
+
+    // --- 6. PARTNERS HEADER ---
+    gsap.from("#parceiros .animate-on-scroll", {
+        scrollTrigger: {
+            trigger: "#parceiros",
+            start: "top 85%",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
+    // --- 7. CASOS DE SUCESSO ---
+    gsap.from("#casos .text-center", {
+        scrollTrigger: {
+            trigger: "#casos",
+            start: "top 85%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
     gsap.from("#casos .grid > div", {
         scrollTrigger: {
             trigger: "#casos .grid",
@@ -101,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "expo.out"
     });
 
-    // --- 6. BACKGROUND GLOW PARALLAX ---
+    // --- 8. BACKGROUND GLOW PARALLAX ---
     gsap.utils.toArray(".blur-\\[120px\\], .blur-\\[100px\\]").forEach(glow => {
         gsap.to(glow, {
             yPercent: 30,
@@ -115,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 7. MOUSE MOVE EFFECT ON HERO ABTRACT BOX ---
+    // --- 9. MOUSE MOVE EFFECT ON HERO ABTRACT BOX ---
     const visualBox = document.querySelector(".hidden.md\\:flex.w-full.md\\:w-\\[40\\%\\].justify-end > div");
     if (visualBox) {
         window.addEventListener("mousemove", (e) => {
@@ -130,14 +180,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Keep the basic intersection observer for anything else with .animate-on-scroll
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate-on-scroll:not(#hero .animate-on-scroll)').forEach(el => observer.observe(el));
 });
