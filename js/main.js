@@ -69,7 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- 2. METRICS BAR ---
-    animateSection("#metricas > div > div", 80, 0.15, "top 90%");
+    // Custom animation for metrics to guarantee fluidity
+    const metricsBlocks = document.querySelectorAll("#metricas .metric-item");
+    if (metricsBlocks.length > 0) {
+        gsap.set(metricsBlocks, { autoAlpha: 1 }); // Ensure visibility first
+        gsap.from(metricsBlocks, {
+            scrollTrigger: {
+                trigger: "#metricas",
+                start: "top 85%",
+                toggleActions: "play reverse play reverse"
+            },
+            y: 80,
+            autoAlpha: 0,
+            duration: 1.5,
+            stagger: 0.2, // increased stagger for elegant sequence
+            ease: "expo.out",
+            clearProps: "all"
+        });
+    }
 
     // --- 3. SOLUTIONS HEADER & CARDS ---
     animateSection("#solucoes .animate-on-scroll", 40, 0, "top 85%");
