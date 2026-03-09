@@ -90,7 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. SOLUTIONS HEADER & CARDS ---
     animateSection("#solucoes .animate-on-scroll", 40, 0, "top 85%");
-    animateSection("#solucoes .grid > div", 80, 0.15, "top 85%");
+
+    const solutionCards = document.querySelectorAll("#solucoes .solution-card");
+    if (solutionCards.length > 0) {
+        gsap.set(solutionCards, { autoAlpha: 1 });
+        gsap.from(solutionCards, {
+            scrollTrigger: {
+                trigger: "#solucoes .grid",
+                start: "top 85%",
+                toggleActions: "play reverse play reverse"
+            },
+            y: 80,
+            autoAlpha: 0,
+            duration: 1.5,
+            stagger: 0.15,
+            ease: "expo.out",
+            clearProps: "all"
+        });
+    }
 
     // --- 4. METHODOLOGY HEADER & PARALLAX ---
     animateSection("#metodologia .sticky", 40, 0, "top 85%");
