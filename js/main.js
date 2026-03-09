@@ -1,4 +1,4 @@
-// Init Lenis smooth scroll - faster and less stiff
+// Init Lenis smooth scroll - highly fluid configuration
 const lenis = new Lenis({
     lerp: 0.1, // Snappier response
     wheelMultiplier: 1.1,
@@ -28,131 +28,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Removed fallback opacity GSAP set to prevent overlaps and instant jumps
-
     // --- 1. HERO ENTRANCE ---
     const heroTl = gsap.timeline();
-
-    // Header fade-in
     heroTl.from("header", { y: -50, opacity: 0, duration: 1, ease: "power3.out" }, 0);
-
-    // Hero Text Stagger
-    heroTl.from("#hero .animate-on-scroll > *", {
+    heroTl.from("#inicio .animate-on-scroll > *", {
         y: 40,
         opacity: 0,
         duration: 1.2,
         stagger: 0.15,
         ease: "power2.out"
     }, 0.2);
-
-    // Hero Abstract Visual Box
-    heroTl.from(".hidden.md\\:flex .relative", {
+    heroTl.from("#hero-visual", {
         x: 50,
         opacity: 0,
         duration: 1.2,
         ease: "power3.out"
     }, 0.4);
 
+    // Reusable animation utility for all main scroll sections
+    const animateSection = (selector, yOffset, staggerTime, triggerPoint = "top 85%") => {
+        const elements = document.querySelectorAll(selector);
+        if (elements.length > 0) {
+            gsap.from(elements, {
+                scrollTrigger: {
+                    trigger: elements[0].closest('section') || elements[0].parentElement,
+                    start: triggerPoint,
+                    toggleActions: "play reverse play reverse" // Guarantee it fades in and out flawlessly
+                },
+                y: yOffset,
+                opacity: 0,
+                duration: 1.2,
+                stagger: staggerTime,
+                ease: "expo.out"
+            });
+        }
+    };
+
     // --- 2. METRICS BAR ---
-    gsap.from("#metricas > div > div", {
-        scrollTrigger: {
-            trigger: "#metricas",
-            start: "top 95%", // Triggers earlier so user scrolls less
-        },
-        y: 80,
-        opacity: 0,
-        duration: 1.5,
-        stagger: 0.15,
-        ease: "expo.out"
-    });
+    animateSection("#metricas > div > div", 80, 0.15, "top 90%");
 
-    // --- 3. SOLUTIONS CARDS ---
-    gsap.from("#solucoes .grid > div", {
-        scrollTrigger: {
-            trigger: "#solucoes .grid",
-            start: "top 90%",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power3.out"
-    });
+    // --- 3. SOLUTIONS HEADER & CARDS ---
+    animateSection("#solucoes .animate-on-scroll", 40, 0, "top 85%");
+    animateSection("#solucoes .grid > div", 80, 0.15, "top 85%");
 
-    // --- 4. METHODOLOGY PARALLAX & REVEAL ---
-    gsap.from("#metodologia .sticky", {
-        scrollTrigger: {
-            trigger: "#metodologia",
-            start: "top 90%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-    });
-
-    const steps = gsap.utils.toArray("#metodologia .relative.animate-on-scroll");
-    steps.forEach((step, i) => {
-        gsap.from(step, {
-            scrollTrigger: {
-                trigger: step,
-                start: "top 90%",
-                toggleActions: "play none none reverse"
-            },
-            x: 50,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power3.out"
-        });
-    });
+    // --- 4. METHODOLOGY HEADER & PARALLAX ---
+    animateSection("#metodologia .sticky", 40, 0, "top 85%");
+    animateSection("#metodologia .relative.animate-on-scroll", 50, 0.15, "top 85%");
 
     // --- 5. ABOUT SECTION ---
-    gsap.from("#sobre .animate-on-scroll", {
-        scrollTrigger: {
-            trigger: "#sobre",
-            start: "top 90%",
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "power3.out"
-    });
+    animateSection("#sobre .animate-on-scroll", 50, 0.2, "top 85%");
 
     // --- 6. PARTNERS HEADER ---
-    gsap.from("#parceiros .animate-on-scroll", {
-        scrollTrigger: {
-            trigger: "#parceiros",
-            start: "top 95%",
-        },
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-    });
+    animateSection("#parceiros .animate-on-scroll", 30, 0, "top 85%");
 
-    // --- 7. CASOS DE SUCESSO ---
-    gsap.from("#casos .text-center", {
-        scrollTrigger: {
-            trigger: "#casos",
-            start: "top 95%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-    });
+    // --- 7. CASOS DE SUCESSO HEADER & CARDS ---
+    animateSection("#casos .text-center", 40, 0, "top 85%");
 
     gsap.from("#casos .grid > div", {
         scrollTrigger: {
             trigger: "#casos .grid",
-            start: "top 90%",
+            start: "top 85%",
+            toggleActions: "play reverse play reverse"
         },
         y: 80,
         opacity: 0,
         scale: 0.95,
         duration: 1.2,
-        stagger: 0.2,
+        stagger: 0.15,
         ease: "expo.out"
     });
 
@@ -184,5 +126,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
 });
