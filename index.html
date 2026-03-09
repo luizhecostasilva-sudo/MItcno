@@ -27,7 +27,306 @@
 
 <body class="antialiased selection:bg-[#00F0FF] selection:text-black">
 
-    <!-- We will build the layout here in the next steps -->
+    <!-- Header / Navigation -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 bg-[#0D0D15]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="max-w-[1920px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3 cursor-pointer group">
+                <div
+                    class="w-8 h-8 rounded-sm bg-gradient-to-br from-[#1D4ED8] to-[#00F0FF] flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-transform group-hover:scale-110">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-wide text-white">MI<span
+                        class="font-sans font-light text-gray-400">Tecnologia</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="#"
+                    class="text-xs font-mono uppercase tracking-[0.2em] text-gray-400 hover:text-[#00F0FF] transition-colors relative group">
+                    Início
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#00F0FF] transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#"
+                    class="text-xs font-mono uppercase tracking-[0.2em] text-gray-400 hover:text-[#00F0FF] transition-colors relative group">
+                    Soluções
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#00F0FF] transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#"
+                    class="text-xs font-mono uppercase tracking-[0.2em] text-gray-400 hover:text-[#00F0FF] transition-colors relative group">
+                    Sobre
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#00F0FF] transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#"
+                    class="text-xs font-mono uppercase tracking-[0.2em] text-gray-400 hover:text-[#00F0FF] transition-colors relative group">
+                    Casos
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#00F0FF] transition-all group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <!-- CTA Contact -->
+            <div class="hidden md:block">
+                <button
+                    class="px-6 py-2.5 bg-transparent border border-white/20 text-white text-xs font-mono uppercase tracking-widest hover:border-[#00F0FF] hover:text-[#00F0FF] hover:bg-[#00F0FF]/5 transition-all duration-300">
+                    Fale Conosco
+                </button>
+            </div>
+
+            <!-- Mobile Menu Icon (Placeholder) -->
+            <button class="md:hidden text-white flex flex-col gap-1.5 focus:outline-none">
+                <span class="block w-6 h-[2px] bg-white"></span>
+                <span class="block w-6 h-[2px] bg-white"></span>
+                <span class="block w-4 h-[2px] bg-white ml-auto"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden">
+            <!-- Subtle Cyber Grid Background -->
+            <div
+                class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] opacity-30 pointer-events-none">
+            </div>
+
+            <!-- Glow Effect -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#1D4ED8]/20 rounded-full blur-[120px] pointer-events-none">
+            </div>
+
+            <div
+                class="max-w-[1920px] mx-auto px-6 md:px-12 w-full relative z-10 flex flex-col md:flex-row items-center justify-between">
+
+                <!-- Left: Typography -->
+                <div class="w-full md:w-[60%] lg:w-[50%] animate-on-scroll">
+                    <div
+                        class="inline-flex items-center gap-3 mb-8 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse"></span>
+                        <span
+                            class="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-gray-300">Inteligência
+                            de Objetos (IoT)</span>
+                    </div>
+
+                    <h1
+                        class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-white mb-6">
+                        Transformamos <br>
+                        <span class="text-[#00F0FF] italic font-light">dados em decisões</span> <br>
+                        para o seu negócio.
+                    </h1>
+
+                    <p class="text-base md:text-lg text-gray-400 font-light max-w-xl leading-relaxed mb-10">
+                        Soluções completas em monitoramento, alarmes, dashboards e automação voltadas a energia,
+                        infraestrutura e ambientes críticos operacionais.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+                        <button
+                            class="group relative px-8 py-4 bg-[#0D0D15] border border-white/20 text-white font-mono text-sm tracking-widest uppercase overflow-hidden hover:border-transparent transition-colors">
+                            <span
+                                class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#1D4ED8] to-[#00F0FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                            <span
+                                class="relative z-10 font-bold group-hover:text-black transition-colors duration-500">Ver
+                                Soluções</span>
+                        </button>
+                        <a href="#"
+                            class="group flex items-center gap-3 text-sm font-mono tracking-widest uppercase text-gray-400 hover:text-white transition-colors">
+                            <span
+                                class="w-8 h-[1px] bg-gray-600 group-hover:bg-[#00F0FF] group-hover:w-12 transition-all duration-300"></span>
+                            Fale com a equipe
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Abstract Data Visual -->
+                <div class="hidden md:flex w-full md:w-[40%] justify-end animate-on-scroll delay-200">
+                    <div class="relative w-[300px] h-[400px] lg:w-[400px] lg:h-[500px]">
+                        <!-- Decorative Abstract Elements -->
+                        <div
+                            class="absolute inset-0 border border-white/10 rounded-2xl bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm flex flex-col justify-between p-6 overflow-hidden">
+                            <!-- Scanning line -->
+                            <div
+                                class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent shadow-[0_0_10px_#00F0FF] animate-[scan_3s_ease-in-out_infinite]">
+                            </div>
+
+                            <div class="flex justify-between items-center w-full">
+                                <span class="font-mono text-xs text-[#00F0FF]">SYS.ONLINE</span>
+                                <span class="w-2 h-2 bg-[#00F0FF] rounded-full"></span>
+                            </div>
+
+                            <div class="space-y-4 w-full mt-10">
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-[#1D4ED8] to-[#00F0FF] w-[99.9%]"></div>
+                                </div>
+                                <div class="h-2 w-3/4 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gray-400 w-[60%]"></div>
+                                </div>
+                                <div class="h-2 w-5/6 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gray-400 w-[85%]"></div>
+                                </div>
+                            </div>
+
+                            <div class="font-mono text-[10px] text-gray-500 tracking-widest break-all mt-auto">
+                                01010011 01011001 01010011 01010100 01000101 01001101 00100000 01000001 01000011
+                                01010100 01001001 01010110 01000101
+                            </div>
+
+                            <!-- Sub Abstract Card -->
+                            <div
+                                class="absolute bottom-6 right-[-20px] bg-[#0D0D15] border border-white/10 p-4 rounded-xl shadow-2xl backdrop-blur-lg">
+                                <div class="flex items-center gap-4">
+                                    <div class="text-3xl font-heading text-white">99,9%</div>
+                                    <div class="text-[10px] font-mono text-gray-400 uppercase leading-tight">
+                                        Uptime<br>Garantido</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics / Status Bar -->
+        <section class="border-y border-white/5 bg-[#0D0D15] overflow-hidden relative z-20">
+            <div
+                class="max-w-[1920px] mx-auto flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-white/5">
+                <div
+                    class="w-full md:w-1/3 py-12 px-6 lg:px-12 flex flex-col items-center md:items-start animate-on-scroll">
+                    <span class="text-4xl lg:text-5xl font-heading text-[#00F0FF] mb-2">+99,9%</span>
+                    <span class="text-sm text-gray-400 font-mono tracking-widest uppercase">SLA Contratual</span>
+                </div>
+                <div
+                    class="w-full md:w-1/3 py-12 px-6 lg:px-12 flex flex-col items-center md:items-start animate-on-scroll delay-100">
+                    <span class="text-4xl lg:text-5xl font-heading text-white mb-2">24/7</span>
+                    <span class="text-sm text-gray-400 font-mono tracking-widest uppercase">Supervisão Contínua</span>
+                </div>
+                <div
+                    class="w-full md:w-1/3 py-12 px-6 lg:px-12 flex flex-col items-center md:items-start animate-on-scroll delay-200">
+                    <span class="text-4xl lg:text-5xl font-heading text-white mb-2">API</span>
+                    <span class="text-sm text-gray-400 font-mono tracking-widest uppercase">Total Integração</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="py-32 px-6 relative" id="solucoes">
+            <!-- Background Decoration -->
+            <div
+                class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1D4ED8]/10 rounded-full blur-[100px] pointer-events-none">
+            </div>
+
+            <div class="max-w-[1920px] mx-auto px-0 md:px-6">
+                <!-- Section Header -->
+                <div class="mb-20 max-w-2xl animate-on-scroll">
+                    <div class="inline-flex items-center gap-3 mb-6">
+                        <span class="w-8 h-[1px] bg-[#00F0FF]"></span>
+                        <span class="text-xs font-mono uppercase tracking-[0.2em] text-[#00F0FF]">Nossas Soluções</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading text-white leading-tight mb-6">
+                        Integração total <br>
+                        <span class="text-gray-500 italic font-light">Hardware, Software e Dados.</span>
+                    </h2>
+                </div>
+
+                <!-- Webflow/DNA Capital Inspired Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+
+                    <!-- Card 1 -->
+                    <div
+                        class="group relative bg-[#151520] border border-white/5 p-10 md:p-14 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 animate-on-scroll">
+                        <div
+                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
+                        <h3 class="text-2xl font-heading text-white mb-4">Monitoramento em Tempo Real</h3>
+                        <p class="text-gray-400 font-light leading-relaxed mb-8">Coleta contínua de dados de campo,
+                            supervisório web, alarmes configuráveis e histórico completo para auditoria e análise.</p>
+                        <ul class="space-y-3 font-mono text-xs tracking-wide text-gray-500">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Leitura de grandezas elétricas
+                                e variáveis</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Alarmes por limite e falha</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Visualização web responsiva
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div
+                        class="group relative bg-[#151520] border border-white/5 p-10 md:p-14 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 animate-on-scroll delay-100">
+                        <div
+                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
+                        <h3 class="text-2xl font-heading text-white mb-4">Automação e Integração</h3>
+                        <p class="text-gray-400 font-light leading-relaxed mb-8">Integração com CLPs, sistemas legados,
+                            bancos de dados e plataformas em nuvem, garantindo fluxo único de informações.</p>
+                        <ul class="space-y-3 font-mono text-xs tracking-wide text-gray-500">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Integração via protocolos e
+                                APIs</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Rotinas automáticas de cálculo
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Scripts e agentes de coleta
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div
+                        class="group relative bg-[#151520] border border-white/5 p-10 md:p-14 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 animate-on-scroll">
+                        <div
+                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
+                        <h3 class="text-2xl font-heading text-white mb-4">Dashboards e Analytics</h3>
+                        <p class="text-gray-400 font-light leading-relaxed mb-8">Painéis personalizados para operação,
+                            gestão e diretoria, permitindo visão estratégica a partir dos dados coletados.</p>
+                        <ul class="space-y-3 font-mono text-xs tracking-wide text-gray-500">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Dashboards web sob medida</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Indicadores de performance
+                                (KPIs)</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Relatórios e exportação de
+                                dados</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div
+                        class="group relative bg-[#151520] border border-white/5 p-10 md:p-14 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-500 animate-on-scroll delay-100">
+                        <div
+                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
+                        <h3 class="text-2xl font-heading text-white mb-4">Consultoria e Suporte</h3>
+                        <p class="text-gray-400 font-light leading-relaxed mb-8">Acompanhamento especializado desde o
+                            desenho da solução até a operação assistida, com suporte contínuo.</p>
+                        <ul class="space-y-3 font-mono text-xs tracking-wide text-gray-500">
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Levantamento de requisitos</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Treinamento de equipes</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>Suporte técnico especializado
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Custom JS Scripts -->
     <script src="js/main.js"></script>
