@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. HERO ENTRANCE ---
     const heroTl = gsap.timeline();
     heroTl.from("header", { y: -50, opacity: 0, duration: 1, ease: "power3.out" }, 0);
-    heroTl.from("#inicio .animate-on-scroll > *", {
+    heroTl.from("#hero .animate-on-scroll > *", {
         y: 40,
         opacity: 0,
         duration: 1.2,
