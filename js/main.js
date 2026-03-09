@@ -1,14 +1,9 @@
-// Init Lenis smooth scroll
+// Init Lenis smooth scroll - faster and less stiff
 const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-    mouseMultiplier: 1,
+    lerp: 0.1, // Snappier response
+    wheelMultiplier: 1.1,
+    smoothWheel: true,
     smoothTouch: false,
-    touchMultiplier: 2,
-    infinite: false,
 });
 
 function raf(time) {
@@ -22,8 +17,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Make navigation buttons work smoothly using Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                lenis.scrollTo(targetId, { offset: -80, duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            }
+        });
+    });
+
     // Remove fallback opacity classes set by HTML since GSAP will handle all inline styles
-    gsap.set(".animate-on-scroll", { opacity: 1, y: 0 }); // Wait, no, we just animate FROM specific states
+    gsap.set(".animate-on-scroll", { opacity: 1, y: 0 });
 
     // --- 1. HERO ENTRANCE ---
     const heroTl = gsap.timeline();
