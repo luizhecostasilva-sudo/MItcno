@@ -142,46 +142,20 @@
 
                 <!-- Right: Abstract Data Visual -->
                 <div class="hidden md:flex w-full md:w-[40%] justify-end animate-on-scroll delay-200">
-                    <div class="relative w-[300px] h-[400px] lg:w-[400px] lg:h-[500px]">
-                        <!-- Decorative Abstract Elements -->
+                    <div
+                        class="relative w-full max-w-[500px] border border-white/10 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(0,240,255,0.15)] group">
+                        <!-- Dashboard Image -->
+                        <img src="assets/dashboard.png" alt="Dashboard MI Tecnologia"
+                            class="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500">
+
+                        <!-- Overlay Sci-Fi Scanning line -->
                         <div
-                            class="absolute inset-0 border border-white/10 rounded-2xl bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm flex flex-col justify-between p-6 overflow-hidden">
-                            <!-- Scanning line -->
-                            <div
-                                class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent shadow-[0_0_10px_#00F0FF] animate-[scan_3s_ease-in-out_infinite]">
-                            </div>
+                            class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent shadow-[0_0_15px_#00F0FF] animate-[scan_3s_ease-in-out_infinite] pointer-events-none">
+                        </div>
 
-                            <div class="flex justify-between items-center w-full">
-                                <span class="font-mono text-xs text-[#00F0FF]">SYS.ONLINE</span>
-                                <span class="w-2 h-2 bg-[#00F0FF] rounded-full"></span>
-                            </div>
-
-                            <div class="space-y-4 w-full mt-10">
-                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-[#1D4ED8] to-[#00F0FF] w-[99.9%]"></div>
-                                </div>
-                                <div class="h-2 w-3/4 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gray-400 w-[60%]"></div>
-                                </div>
-                                <div class="h-2 w-5/6 bg-white/5 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gray-400 w-[85%]"></div>
-                                </div>
-                            </div>
-
-                            <div class="font-mono text-[10px] text-gray-500 tracking-widest break-all mt-auto">
-                                01010011 01011001 01010011 01010100 01000101 01001101 00100000 01000001 01000011
-                                01010100 01001001 01010110 01000101
-                            </div>
-
-                            <!-- Sub Abstract Card -->
-                            <div
-                                class="absolute bottom-6 right-[-20px] bg-[#0D0D15] border border-white/10 p-4 rounded-xl shadow-2xl backdrop-blur-lg">
-                                <div class="flex items-center gap-4">
-                                    <div class="text-3xl font-heading text-white">99,9%</div>
-                                    <div class="text-[10px] font-mono text-gray-400 uppercase leading-tight">
-                                        Uptime<br>Garantido</div>
-                                </div>
-                            </div>
+                        <!-- Glow Overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0D0D15] via-transparent to-transparent pointer-events-none">
                         </div>
                     </div>
                 </div>
