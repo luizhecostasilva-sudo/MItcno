@@ -4,20 +4,31 @@
     --bg-card: #151520;
     --text-primary: #FFFFFF;
     --text-secondary: #A1A1AA;
-    
+
     --neon-cyan: #00F0FF;
     --blue-accent: #1D4ED8;
-    
-    --font-heading: 'Cormorant Garamond', serif;
+
+    --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 }
 
 /* Lenis Smooth Scroll Recommended CSS */
-html.lenis { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: hidden; }
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
 
 body {
     font-family: var(--font-body);
@@ -26,7 +37,11 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, .font-heading {
+h1,
+h2,
+h3,
+h4,
+.font-heading {
     font-family: var(--font-heading);
 }
 
