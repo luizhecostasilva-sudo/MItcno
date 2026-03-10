@@ -283,4 +283,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- 11. HIDE WHATSAPP BUTTON ON FOOTER ---
+    const whatsappBtn = document.getElementById('whatsapp-fab');
+    const footer = document.getElementById('contato');
+
+    if (whatsappBtn && footer) {
+        ScrollTrigger.create({
+            trigger: footer,
+            start: "top bottom", // When the top of the footer hits the bottom of the viewport
+            onEnter: () => gsap.to(whatsappBtn, { autoAlpha: 0, scale: 0.5, duration: 0.3, ease: "power2.in" }),
+            onLeaveBack: () => gsap.to(whatsappBtn, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(1.5)" }),
+        });
+    }
 });
