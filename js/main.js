@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Animate hamburger to X
                 mobileMenuBtn.children[0].classList.add('translate-y-[8px]', 'rotate-45');
                 mobileMenuBtn.children[1].classList.add('opacity-0');
-                mobileMenuBtn.children[2].classList.add('-translate-y-[8px]', '-rotate-45', '!w-6');
+                mobileMenuBtn.children[2].classList.add('-translate-y-[8px]', '-rotate-45');
 
                 // Animate menu links
                 gsap.fromTo(mobileLinks,
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Animate X back to hamburger
                 mobileMenuBtn.children[0].classList.remove('translate-y-[8px]', 'rotate-45');
                 mobileMenuBtn.children[1].classList.remove('opacity-0');
-                mobileMenuBtn.children[2].classList.remove('-translate-y-[8px]', '-rotate-45', '!w-6');
+                mobileMenuBtn.children[2].classList.remove('-translate-y-[8px]', '-rotate-45');
 
                 gsap.to(mobileLinks, {
                     y: -20, autoAlpha: 0, duration: 0.3, stagger: 0.05, ease: "power2.in",
