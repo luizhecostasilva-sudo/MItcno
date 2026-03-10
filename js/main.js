@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(casesHeader, {
             scrollTrigger: {
                 trigger: "#casos",
-                start: "top 85%",
+                start: "top 95%",
                 toggleActions: "play reverse play reverse"
             },
             y: 40,
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.from(caseCards, {
             scrollTrigger: {
                 trigger: "#casos .grid",
-                start: "top 85%",
+                start: "top 95%",
                 toggleActions: "play reverse play reverse"
             },
             y: 80,
