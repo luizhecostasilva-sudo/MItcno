@@ -284,44 +284,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 11. WHATSAPP BUTTON ANIMATIONS ---
+    // --- 11. HIDE WHATSAPP BUTTON ON FOOTER ---
     const whatsappBtn = document.getElementById('whatsapp-fab');
+    const footer = document.getElementById('contato');
+
     if (whatsappBtn) {
-        // Continuous organic floating animation in all directions
+        // Faster organic floating animation in all directions
         const floatAnimation = () => {
             gsap.to(whatsappBtn, {
                 x: () => gsap.utils.random(-8, 8),
                 y: () => gsap.utils.random(-12, 12),
                 rotation: () => gsap.utils.random(-5, 5),
-                duration: () => gsap.utils.random(2, 4),
+                duration: () => gsap.utils.random(0.8, 1.5),
                 ease: "sine.inOut",
                 onComplete: floatAnimation
             });
         };
         floatAnimation(); // Start the loop
 
-        // Smooth hide/show when scrolling over the footer
-        const footer = document.getElementById('contato');
         if (footer) {
             ScrollTrigger.create({
                 trigger: footer,
-                start: "top 95%",
-                onEnter: () => {
-                    gsap.killTweensOf(whatsappBtn, "x,y,rotation"); // Stop floating
-                    gsap.to(whatsappBtn, { autoAlpha: 0, scale: 0.2, y: 50, rotation: -45, duration: 0.5, ease: "back.in(1.2)" });
-                },
-                onLeaveBack: () => {
-                    gsap.to(whatsappBtn, {
-                        autoAlpha: 1,
-                        scale: 1,
-                        x: 0,
-                        y: 0,
-                        rotation: 0,
-                        duration: 0.6,
-                        ease: "back.out(1.5)",
-                        onComplete: floatAnimation
-                    });
-                }
+                start: "top bottom", // When the top of the footer hits the bottom of the viewport
+                onEnter: () => gsap.to(whatsappBtn, { autoAlpha: 0, scale: 0.5, duration: 0.3, ease: "power2.in" }),
+                onLeaveBack: () => gsap.to(whatsappBtn, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(1.5)" }),
             });
         }
     }
