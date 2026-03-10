@@ -6,14 +6,17 @@ const lenis = new Lenis({
     smoothTouch: false,
 });
 
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
-
 // Init GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
+
+// Sync Lenis scroll with GSAP ScrollTrigger
+lenis.on('scroll', ScrollTrigger.update);
+
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000); // GSAP provides time in seconds, Lenis expects ms
+});
+
+gsap.ticker.lagSmoothing(0);
 
 document.addEventListener('DOMContentLoaded', () => {
 
