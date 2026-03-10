@@ -100,7 +100,14 @@
         </nav>
     </header>
 
-    <main>
+    <main class="relative z-0">
+        <!-- Persistent Background Logo Watermark -->
+        <div
+            class="fixed inset-0 z-[-1] flex items-center justify-center pointer-events-none overflow-hidden mix-blend-screen">
+            <img src="assets/logo.png" alt="MI Tecnologia Background"
+                class="w-[120%] md:w-[80vw] max-w-[1200px] h-auto object-contain opacity-[0.03] grayscale blur-[2px] transform scale-150 md:scale-100">
+        </div>
+
         <!-- Hero Section -->
         <section id="hero" class="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden">
             <!-- Subtle Cyber Grid Background -->
